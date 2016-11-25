@@ -1,0 +1,2 @@
+# lokaverkefnivefforritun
+Bara eitthvað kúl
