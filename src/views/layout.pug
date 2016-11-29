@@ -1,9 +1,20 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/main.css')
-  body
+	head   
+		span(style="font-size:30px;cursor:pointer" onclick="openNav()")= '☰ Opna'
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/main.css')
+		script(src='/javascripts/some.js')
+    
+	body
+		div.form-group
+		h1= title
+		div(id="mySidenav" class="sidenav")
+			a(href="javascript:void(0)" class="closebtn" onclick="closeNav()")= 'loka'
+			p.
+			each count in rasir
+				a(id=count.id href= '/event/observations/'+count.id)= count.name
+				p.
 
-    block content
+	block content

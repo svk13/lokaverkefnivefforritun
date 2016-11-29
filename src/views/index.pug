@@ -1,24 +1,13 @@
 extends layout
 
 block content
-	div.form-group
-		h1= title
-		if ras
-			a(href='/' class="button") Til baka
 
-	if rasir
+	if rasir2
+		h2= 'Veldu flokk'
 		each val in rasir
-			each count in val.channels
-				h2: a(class="lists" href= '/event/'+ count.name + count.endpoint )= count.name
-				p.
-	if ras
-		each val in ras
-			div(class="shows", id="oceans")
-				h2= val.title
-				h5= val.originalTitle
-				h5= 'Lengd ' + val.duration + ' Klst.'
-				h5= val.description
-				h5= val.shortDescription
-				h5= val.startTime
-				if val.series.episode
-					h5= 'Þáttur: ' + val.series.episode + ' Sería: ' + val.series.series
+			p4= 'Veðurstöðvar'
+			h2: a(class="lists" href= '/event'+ val.other.availableStations+'/ekkertvalid')= 'Velja stöð'
+			each count in val.endpoints
+				h2: a(class="lists" href= '/event'+ count+'is?stations=1,422')= count
+	if rasir
+		p= JSON.stringify(ras)

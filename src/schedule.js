@@ -1,7 +1,7 @@
 const axios = require('axios');
 const express = require('express');
 
-const router = new express.Router();
+const router = express.Router();
 const baseURL = 'https://apis.is';
 const instance = axios.create({
   baseURL,
@@ -15,7 +15,7 @@ const instance = axios.create({
  * @returns {Promise} - Promise with available channels when resolved
  */
 function channels() {
-  return instance.get('/tv/');
+  return instance.get('/weather/getAvailableStations');
 }
 /**
  * Fetches schedule for a channel by name, returns an array, e.g.:
@@ -25,17 +25,24 @@ function channels() {
  * @param {string} name - Name of the channel
  * @returns {Promise} - Promise with schedule for channel when resolved
  */
-function channel(name) {
-  const str = `/tv/${name}`;
-  return instance.get(str);
+function channel(choise,svaedi) {
+	console.log(choise);
+	const str = `/weather/${choise}/is?stations=${svaedi}`;
+		return instance.get(str);
 }
 
 router.get('/', (req, res) => {
   channels()
   .then((result) => {
     const breyta = result.data.results;
-    res.render('index', {
-      title: 'Íslenskar sjónvarpsstöðvar',
+	const cities=[];
+	for(i=0; i<breyta.length; i++){
+		console.log(breyta[i].name);
+		cities[i]=[breyta[i].name];
+	};
+
+    res.render('layout', {
+      title: 'Veður',
       rasir: breyta,
     });
   })
@@ -47,13 +54,20 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/event/:name2/:channels/:name', (req, res) => {
-  channel(req.params.name)
+
+
+router.get('/event/:choise/:station', (req, res) => {
+	  channels()
+  .then((result) => {
+    const cities = result.data.results;
+	console.log('hæhæhæhææh');
+	channel(req.params.choise, req.params.station)
   .then((result) => {
     const breyta = result.data.results;
     res.render('index', {
-      title: `Dagskrá ${req.params.name2}`,
+      title: `Val`,
       ras: breyta,
+	  rasir: cities,
     });
   })
   .catch((error) => {
@@ -61,7 +75,9 @@ router.get('/event/:name2/:channels/:name', (req, res) => {
       title: 'Úpps',
       error,
     });
-  });
+  });  
+  })
+	
 });
 
 
