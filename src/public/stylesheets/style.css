@@ -96,3 +96,18 @@ a {
 #main{
 	height: 100%;
 }
+.info{
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+}
+.collapse.in {
+    display: block;
+    height: 100%;
+}
+.panel-group{
+    margin-bottom: 0;
+    border-radius: 4px;
+    height: 40%;
+}
+

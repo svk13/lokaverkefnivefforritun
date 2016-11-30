@@ -2,36 +2,44 @@ extends layout
 
 block content
 
-	if rasir2
-		h2= 'Veldu flokk'
-		each val in rasir
-			p4= 'Veðurstöðvar'
-			h2: a(class="lists" href= '/event'+ val.other.availableStations+'/ekkertvalid')= 'Velja stöð'
-			each count in val.endpoints
-				h2: a(class="lists" href= '/event'+ count+'is?stations=1,422')= count
 	if rasir
-		div.row
-			div.col-md-4
-				h1= ras[0].name
-				h3= ras[0].time
-				h3= ras[0].link
-				h3= desc["F"].is + ' : ' + ras[0].F
-				h3= desc["FX"].is + ' : ' + ras[0].FX
-				h3= desc["FG"].is + ' : ' + ras[0].FG
-				h3= desc["D"].is + ' : ' + ras[0].D
-				h3= desc["T"].is + ' : ' + ras[0].T
-				h3= desc["W"].is + ' : ' + ras[0].W
-				h3= desc["V"].is + ' : ' + ras[0].V
-			div.col-md-2
-				h3= desc["N"].is + ' : ' + ras[0].N
-				h3= desc["P"].is + ' : ' + ras[0].P
-				h3= desc["RH"].is + ' : ' + ras[0].RH
-				h3= desc["SNC"].is + ' : ' + ras[0].SNC
-				h3= desc["SND"].is + ' : ' + ras[0].SND
-				h3= desc["SED"].is + ' : ' + ras[0].SED
-				h3= desc["RTE"].is + ' : ' + ras[0].RTE
-				h3= desc["TD"].is + ' : ' + ras[0].TD
-				h3= desc["R"].is + ' : ' + ras[0].R
+		div.col
+			h1= ras[0].name
+			p= ras[0].time
 		
-		p.
-		iframe(src=ras[0].link, class="movie-poster")
+		div(class="panel-group")
+			div(class="panel panel-default")
+				div(class="panel-heading")
+					h4(class="panel-title")
+						a( data-toggle="collapse" href="#collapse1")= 'Upplýsingar'
+				div(id="collapse1" class="panel-collapse collapse in")
+					div(class="panel-body")
+						div(class="info")
+							p= desc["F"].is + ' : ' + ras[0].F
+							p= desc["FX"].is + ' : ' + ras[0].FX
+							p= desc["FG"].is + ' : ' + ras[0].FG
+							p= desc["D"].is + ' : ' + ras[0].D
+							p= desc["T"].is + ' : ' + ras[0].T
+							p= desc["W"].is + ' : ' + ras[0].W
+							p= desc["W"].is + ' : ' + ras[0].W
+							p= desc["V"].is + ' : ' + ras[0].V
+							p= desc["N"].is + ' : ' + ras[0].N
+							p= desc["P"].is + ' : ' + ras[0].P
+							p= desc["RH"].is + ' : ' + ras[0].RH
+							p= desc["SNC"].is + ' : ' + ras[0].SNC
+							p= desc["SND"].is + ' : ' + ras[0].SND
+							p= desc["SED"].is + ' : ' + ras[0].SED
+							p= desc["RTE"].is + ' : ' + ras[0].RTE
+							p= desc["TD"].is + ' : ' + ras[0].TD
+							p= desc["R"].is + ' : ' + ras[0].R
+		// a( href=ras[0].link)= 'Skoða á Vedur.is'
+		div(class="panel-group" id="frame1")
+			div(class="panel panel-default")
+				div(class="panel-heading")
+					h4(class="panel-title")
+						a( data-toggle="collapse" href="#collapse2")= 'Vedur.is'
+				div(id="collapse2" class="panel-collapse collapse")
+					//div(class="panel-body")
+					iframe(src=ras[0].link, class="movie-poster")
+		
+	
