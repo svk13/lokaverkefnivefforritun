@@ -89,7 +89,7 @@ a {
   .sidenav a {font-size: 18px;}
 }
 .movie-poster{
-	height: 50%;
+	height: 100%;
     width: 100%;
 	bottom: 20px;
 }
@@ -105,9 +105,12 @@ a {
     display: block;
     height: 100%;
 }
-.panel-group{
+.panel-group .panel {
     margin-bottom: 0;
     border-radius: 4px;
+    height: 100%;
+}
+.panel-group {
+    margin-bottom: 20px;
     height: 40%;
 }
-
