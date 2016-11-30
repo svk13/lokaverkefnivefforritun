@@ -88,3 +88,11 @@ a {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+.movie-poster{
+	height: 50%;
+    width: 100%;
+	bottom: 20px;
+}
+#main{
+	height: 100%;
+}

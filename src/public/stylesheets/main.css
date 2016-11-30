@@ -1,2 +1,11 @@
 body {
-  background: white; }
+  background: white;
+  height:100%;
+  padding-top: 15px;
+  padding-bottom:15px;}
+html {
+    display: block;
+	height: 100%;
+	padding-top: 15px;
+	padding-bottom:15px;
+}

@@ -10,4 +10,28 @@ block content
 			each count in val.endpoints
 				h2: a(class="lists" href= '/event'+ count+'is?stations=1,422')= count
 	if rasir
-		p= JSON.stringify(ras)
+		div.row
+			div.col-md-4
+				h1= ras[0].name
+				h3= ras[0].time
+				h3= ras[0].link
+				h3= desc["F"].is + ' : ' + ras[0].F
+				h3= desc["FX"].is + ' : ' + ras[0].FX
+				h3= desc["FG"].is + ' : ' + ras[0].FG
+				h3= desc["D"].is + ' : ' + ras[0].D
+				h3= desc["T"].is + ' : ' + ras[0].T
+				h3= desc["W"].is + ' : ' + ras[0].W
+				h3= desc["V"].is + ' : ' + ras[0].V
+			div.col-md-2
+				h3= desc["N"].is + ' : ' + ras[0].N
+				h3= desc["P"].is + ' : ' + ras[0].P
+				h3= desc["RH"].is + ' : ' + ras[0].RH
+				h3= desc["SNC"].is + ' : ' + ras[0].SNC
+				h3= desc["SND"].is + ' : ' + ras[0].SND
+				h3= desc["SED"].is + ' : ' + ras[0].SED
+				h3= desc["RTE"].is + ' : ' + ras[0].RTE
+				h3= desc["TD"].is + ' : ' + ras[0].TD
+				h3= desc["R"].is + ' : ' + ras[0].R
+		
+		p.
+		iframe(src=ras[0].link, class="movie-poster")
